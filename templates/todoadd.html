@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<head>
+    <style>
+        form{
+            background-color: darkslategrey;
+            color:bisque;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            height: 80%;
+            }
+            
+        input{
+                color: tomato;
+                border: 2px solid white;
+                background-color:white;
+                border-radius: 10px;
+                margin-left: 20px;
+            }
+        button{
+                background-color: bisque;
+                color: blue;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 15px;
+                width: 100px;
+                height: 50px;
+                border-radius: 30px;
+            }
+        button:hover{
+                background-color: cyan;
+            }
+        .nt{
+            color:bisque;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            background-color: darkslategrey;
+        }
+        
+    </style>
+</head>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button value="savetodo">Submit</button>
+
+</form>
+<p class="nt">
+Note:- Here You Can Add Your Own Feedback It Will Valueable For Us!
+</p>
+
+
+
+
+
+{% endblock %}

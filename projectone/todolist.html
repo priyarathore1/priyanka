@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<head>
+    <style>
+        table{
+            width: 100%;
+            
+        }
+        table,th,tr,td{
+            border: 2px solid brown;
+            text-align: center;
+            background-color: rgb(255, 250, 245);
+        }
+        th{
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            background-color: rgb(130, 151, 92);
+            color: rgb(167, 20, 20);
+
+        }
+        th,tr,td{
+            height: 50px;
+            width: 200px;
+        }
+        .no{
+            color: darkred;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            background-color: rgb(130, 151, 92);
+        }
+    
+        
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Name</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Update/Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td>{{todo.title}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.name}}</td>
+                <td>{{created_at}}</td>
+                <td>{{updated_at}}</td>
+                <td>
+                    <a href="{%url 'todo:todoedit' todo.id%}">
+                    <button>Update</button></a>
+                    
+                    <a href="{%url 'todo:tododelete' todo.id%}">
+                    <button >Delete</button></a>
+                   
+                   </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+    
+</body>
+<p class="no">
+Note:- Here You Can Edit,Delete,Read What Are All Feedbacks You Have Added!
+</p>
+{% endblock %}

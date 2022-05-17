@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <style>
+        form{
+            margin-left: 500px;
+            color:blue
+        }
+        h1{
+            color:orange;
+        }
+
+    </style>
+</head>
+<form method="post">
+    <h1>Login Here</h1>
+
+    {%csrf_token%} 
+    {{form.as_p}}
+    <button style="color:white;background-color:blue;font-size:20px;border-radius:10px;margin-left:100px;" type="submit" name="login">Login</button>
+
+</form>
+{% endblock %}
